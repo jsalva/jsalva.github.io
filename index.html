@@ -38,35 +38,30 @@
       'IMG-5661.JPG',
       'IMG-5662.JPG',
     ],
-    imgIndex = 0,
-    imageFile;
+    imgIndex = 0;
 
-  pannellum.viewer('panorama', {
-      "type": "equirectangular",
-      "panorama": "https://jsalva.github.io/images/IMG-5652.JPG",
-      "autoLoad": true,
-  });
+  var config = {
+      autoLoad: true,
+      autoRotate: 5,
+      basePath: 'https://jsalva.github.io/images/',
+      panorama: images[imgIndex]};
+
+  pannellum.viewer('panorama', config);
+
+  var update = function(){
+    imgFile = images[imgIndex%images.length];
+    config['imgFile'] = imgFile;
+    pannellum.viewer('panorama', config);
+  };
 
   document.getElementById('previous').addEventListener('click', function(){
     imgIndex--;
-    imgFile = images[imgIndex%images.length];
-    console.log(imgFile);
-    pannellum.viewer('panorama', {
-        "type": "equirectangular",
-        "panorama": "https://jsalva.github.io/images/"+imgFile,
-        "autoLoad": true,
-    });
+    update();
   });
 
   document.getElementById('next').addEventListener('click', function(){
     imgIndex++;
-    imgFile = images[imgIndex%images.length];
-    console.log(imgFile);
-    pannellum.viewer('panorama', {
-        "type": "equirectangular",
-        "panorama": "https://jsalva.github.io/images/"+imgFile,
-        "autoLoad": true,
-    });
+    update();
   });
 </script>
 

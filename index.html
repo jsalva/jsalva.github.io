@@ -12,18 +12,18 @@
         height: 700px;
     }
     #next {
-      float: left;
+      float: right;
     }
     #previous {
-      float: right;
+      float: left;
     }
     </style>
 </head>
 <body>
 
 <div id="panorama"></div>
-<a id="previous">&gt;</a>
-<a id="next">&lt;</a>
+<a id="previous">&lt;</a>
+<a id="next">&gt;</a>
 
 
 
@@ -43,20 +43,22 @@ pannellum.viewer('panorama', {
 document.getElementById('previous').addEventListener('click', function(){
   imgIndex--;
   imgFile = images[imgIndex%images.length];
+  console.log(imgFile);
   pannellum.viewer('panorama', {
       "type": "equirectangular",
       "panorama": "https://jsalva.github.io/images/"+imgFile
   });
-})
+});
 
 document.getElementById('next').addEventListener('click', function(){
   imgIndex++;
   imgFile = images[imgIndex%images.length];
+  console.log(imgFile);
   pannellum.viewer('panorama', {
       "type": "equirectangular",
       "panorama": "https://jsalva.github.io/images/"+imgFile
   });
-})
+});
 </script>
 
 </body>

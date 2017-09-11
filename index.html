@@ -43,7 +43,8 @@
 
   pannellum.viewer('panorama', {
       "type": "equirectangular",
-      "panorama": "https://jsalva.github.io/images/IMG-5652.JPG"
+      "panorama": "https://jsalva.github.io/images/IMG-5652.JPG",
+      "autoLoad": true,
   });
 
   document.getElementById('previous').addEventListener('click', function(){
@@ -52,7 +53,8 @@
     console.log(imgFile);
     pannellum.viewer('panorama', {
         "type": "equirectangular",
-        "panorama": "https://jsalva.github.io/images/"+imgFile
+        "panorama": "https://jsalva.github.io/images/"+imgFile,
+        "autoLoad": true,
     });
   });
 
@@ -62,7 +64,8 @@
     console.log(imgFile);
     pannellum.viewer('panorama', {
         "type": "equirectangular",
-        "panorama": "https://jsalva.github.io/images/"+imgFile
+        "panorama": "https://jsalva.github.io/images/"+imgFile,
+        "autoLoad": true,
     });
   });
 </script>

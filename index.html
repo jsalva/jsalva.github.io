@@ -8,21 +8,55 @@
     <script type="text/javascript" src="https://cdn.pannellum.org/2.3/pannellum.js"></script>
     <style>
     #panorama {
-        width: 600px;
-        height: 400px;
+        width: 100%;
+        height: 700px;
+    }
+    #next {
+      float: left;
+    }
+    #previous {
+      float: right;
     }
     </style>
 </head>
 <body>
 
 <div id="panorama"></div>
+<a id="previous">&gt;</a>
+<a id="next">&lt;</a>
+
 
 
 <script>
+var images = [
+    'IMG-5652.JPG',
+    'IMG-5653.JPG'
+  ],
+  imgIndex = 0,
+  imageFile;
+
 pannellum.viewer('panorama', {
     "type": "equirectangular",
     "panorama": "https://jsalva.github.io/images/IMG-5652.JPG"
 });
+
+document.getElementById('previous').addEventListener('click', function(){
+  imgIndex--;
+  imgFile = images[imgIndex%images.length];
+  pannellum.viewer('panorama', {
+      "type": "equirectangular",
+      "panorama": "https://jsalva.github.io/images/"+imgFile
+  });
+})
+
+document.getElementById('next').addEventListener('click', function(){
+  imgIndex++;
+  imgFile = images[imgIndex%images.length];
+  pannellum.viewer('panorama', {
+      "type": "equirectangular",
+      "panorama": "https://jsalva.github.io/images/"+imgFile
+  });
+})
 </script>
 
 </body>

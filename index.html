@@ -22,51 +22,49 @@
 <body>
 
 <div id="panorama"></div>
-<a id="previous">&lt;</a>
-<a id="next">&gt;</a>
-
-
+<a href="#" id="previous">&lt;</a>
+<a href="#" id="next">&gt;</a>
 
 <script>
-var images = [
-    'IMG-5652.JPG',
-    'IMG-5653.JPG',
-    'IMG-5654.JPG',
-    'IMG-5655.JPG',
-    'IMG-5656.JPG',
-    'IMG-5657.JPG',
-    'IMG-5659.JPG',
-    'IMG-5660.JPG',
-    'IMG-5661.JPG',
-    'IMG-5662.JPG',
-  ],
-  imgIndex = 0,
-  imageFile;
+  var images = [
+      'IMG-5652.JPG',
+      'IMG-5653.JPG',
+      'IMG-5654.JPG',
+      'IMG-5655.JPG',
+      'IMG-5656.JPG',
+      'IMG-5657.JPG',
+      'IMG-5659.JPG',
+      'IMG-5660.JPG',
+      'IMG-5661.JPG',
+      'IMG-5662.JPG',
+    ],
+    imgIndex = 0,
+    imageFile;
 
-pannellum.viewer('panorama', {
-    "type": "equirectangular",
-    "panorama": "https://jsalva.github.io/images/IMG-5652.JPG"
-});
-
-document.getElementById('previous').addEventListener('click', function(){
-  imgIndex--;
-  imgFile = images[imgIndex%images.length];
-  console.log(imgFile);
   pannellum.viewer('panorama', {
       "type": "equirectangular",
-      "panorama": "https://jsalva.github.io/images/"+imgFile
+      "panorama": "https://jsalva.github.io/images/IMG-5652.JPG"
   });
-});
 
-document.getElementById('next').addEventListener('click', function(){
-  imgIndex++;
-  imgFile = images[imgIndex%images.length];
-  console.log(imgFile);
-  pannellum.viewer('panorama', {
-      "type": "equirectangular",
-      "panorama": "https://jsalva.github.io/images/"+imgFile
+  document.getElementById('previous').addEventListener('click', function(){
+    imgIndex--;
+    imgFile = images[imgIndex%images.length];
+    console.log(imgFile);
+    pannellum.viewer('panorama', {
+        "type": "equirectangular",
+        "panorama": "https://jsalva.github.io/images/"+imgFile
+    });
   });
-});
+
+  document.getElementById('next').addEventListener('click', function(){
+    imgIndex++;
+    imgFile = images[imgIndex%images.length];
+    console.log(imgFile);
+    pannellum.viewer('panorama', {
+        "type": "equirectangular",
+        "panorama": "https://jsalva.github.io/images/"+imgFile
+    });
+  });
 </script>
 
 </body>
